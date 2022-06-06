@@ -1,6 +1,6 @@
-const path = require("path");
 const webpack = require("webpack");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require("path");
 
 module.exports = {
     entry: {
@@ -46,5 +46,12 @@ module.exports = {
             analyzerMode: "static", //the report outputs to an HTML file in the dist folder
         })
     ],
-    mode: 'development'
+    mode: 'development',
+    devServer: {
+        static: {
+            directory: path.join(__dirname),
+        },
+        compress: true,
+        port: 8080,
+    },
 }; 
